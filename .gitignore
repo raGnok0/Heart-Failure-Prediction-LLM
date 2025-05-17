@@ -1,0 +1,20 @@
+# Python virtual environments
+venv/
+env/
+**/venv/
+**/env/
+
+# Node modules (if you have a frontend)
+node_modules/
+
+# macOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# Logs and OS trash
+*.log
+*.tmp
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
