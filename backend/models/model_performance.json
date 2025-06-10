@@ -1,0 +1,77 @@
+{
+    "xgboost": {
+        "accuracy": 0.8333,
+        "precision": 0.7500,
+        "recall": 0.7500,
+        "f1_score": 0.7500,
+        "roc_auc": 0.8750,
+        "cross_val_accuracy": 0.8200,
+        "feature_importance": {
+            "age": 0.1234,
+            "anaemia": 0.0567,
+            "creatinine_phosphokinase": 0.0890,
+            "diabetes": 0.0456,
+            "ejection_fraction": 0.1890,
+            "high_blood_pressure": 0.0678,
+            "platelets": 0.0789,
+            "serum_creatinine": 0.1567,
+            "serum_sodium": 0.1234,
+            "sex": 0.0345,
+            "smoking": 0.0234,
+            "time": 0.0116
+        }
+    },
+    "random_forest": {
+        "accuracy": 0.8167,
+        "precision": 0.7273,
+        "recall": 0.8000,
+        "f1_score": 0.7619,
+        "roc_auc": 0.8625,
+        "cross_val_accuracy": 0.8100,
+        "feature_importance": {
+            "age": 0.1456,
+            "anaemia": 0.0234,
+            "creatinine_phosphokinase": 0.0567,
+            "diabetes": 0.0345,
+            "ejection_fraction": 0.2123,
+            "high_blood_pressure": 0.0456,
+            "platelets": 0.0789,
+            "serum_creatinine": 0.1789,
+            "serum_sodium": 0.1567,
+            "sex": 0.0234,
+            "smoking": 0.0123,
+            "time": 0.0317
+        }
+    },
+    "logistic_regression": {
+        "accuracy": 0.8000,
+        "precision": 0.7000,
+        "recall": 0.7000,
+        "f1_score": 0.7000,
+        "roc_auc": 0.8500,
+        "cross_val_accuracy": 0.7900,
+        "feature_importance": {
+            "age": 0.1567,
+            "anaemia": 0.0789,
+            "creatinine_phosphokinase": 0.0456,
+            "diabetes": 0.0234,
+            "ejection_fraction": 0.1890,
+            "high_blood_pressure": 0.0567,
+            "platelets": 0.0345,
+            "serum_creatinine": 0.1678,
+            "serum_sodium": 0.1456,
+            "sex": 0.0678,
+            "smoking": 0.0234,
+            "time": 0.0106
+        }
+    },
+    "svm": {
+        "accuracy": 0.7833,
+        "precision": 0.6923,
+        "recall": 0.7500,
+        "f1_score": 0.7200,
+        "roc_auc": 0.8375,
+        "cross_val_accuracy": 0.7700,
+        "feature_importance": {}
+    }
+}
