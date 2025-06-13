@@ -129,14 +129,14 @@ class MultiModelTrainer:
         
         # Save models
         for model_name, model in self.models.items():
-            joblib.dump(model, f'backend/models/{model_name}_model.pkl')
+            joblib.dump(model, f'models/{model_name}_model.pkl')
         
         # Save scalers
         for scaler_name, scaler in self.scalers.items():
-            joblib.dump(scaler, f'backend/models/{scaler_name}_scaler.pkl')
+            joblib.dump(scaler, f'models/{scaler_name}_scaler.pkl')
         
         # Save performance metrics
-        with open('backend/models/model_performance.json', 'w') as f:
+        with open('models/model_performance.json', 'w') as f:
             # Convert numpy types to Python types for JSON serialization
             metrics_json = {}
             for model_name, metrics in self.performance_metrics.items():
@@ -150,7 +150,7 @@ class MultiModelTrainer:
             json.dump(metrics_json, f, indent=4)
         
         # Save feature names
-        with open('backend/models/feature_names.json', 'w') as f:
+        with open('models/feature_names.json', 'w') as f:
             json.dump(self.feature_names, f)
     
     def generate_comparison_report(self):
@@ -214,11 +214,12 @@ class MultiModelTrainer:
         
         # Plot 4: All Metrics Heatmap
         metrics_for_heatmap = comparison_df[['accuracy', 'precision', 'recall', 'f1_score', 'roc_auc']]
-        sns.heatmap(metrics_for_heatmap.T, annot=True, cmap='YlOrRd', ax=axes[1, 1], fmt='.3f')
+        metrics_for_heatmap_clean = metrics_for_heatmap.astype(float)  # Ensure all values are float for heatmap
+        sns.heatmap(metrics_for_heatmap_clean.T, annot=True, cmap='YlOrRd', ax=axes[1, 1], fmt='.3f')
         axes[1, 1].set_title('All Metrics Heatmap')
         
         plt.tight_layout()
-        plt.savefig('backend/models/model_comparison.png', dpi=300, bbox_inches='tight')
+        plt.savefig('models/model_comparison.png', dpi=300, bbox_inches='tight')
         plt.close()
         
         print("Visualizations saved as 'model_comparison.png'")
@@ -229,7 +230,8 @@ def main():
     print("="*60)
     
     # Initialize trainer
-    trainer = MultiModelTrainer('data/heart_failure_clinical_records_dataset.csv')
+    trainer = MultiModelTrainer('../data/heart_failure_clinical_records_dataset.csv')
+    print("Initialized MultiModelTrainer with data path:", trainer.data_path)
     
     # Load and preprocess data
     X_train, X_test, y_train, y_test, X_train_scaled, X_test_scaled = trainer.load_and_preprocess_data()
